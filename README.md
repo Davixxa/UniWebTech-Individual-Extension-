@@ -15,7 +15,8 @@ A reimplementation of the PHPVideoGameLibrary repository in a different framewor
 ## Step 2: Activate said virtual environment:
 
 Windows: `C:\> <venv>\Scripts\activate.bat`
-Mac/Linux/BSD `$ source <venv>/bin/activate`
+
+Mac/Linux/BSD: `$ source <venv>/bin/activate`
 
 ## Step 3: Install the dependencies:
 In the activated virtual envrironment, install the dependencies using pip
