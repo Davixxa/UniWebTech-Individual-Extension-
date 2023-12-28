@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %} Login | Games Library {% endblock %}
+
+{% block content %}
+
+
+<div class="h-100 p-5 bg-body-tertiary border rounded-3">
+
+    {% if form.errors %}
+        <p>Username and pasword didn't match. Try again.
+    {% endif %}
+
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" class="form-control" name="username" id="username" aria-describedby="">
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" name="password" id="password">
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+        </div>
+    </div>
+
+        
+   
+
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}

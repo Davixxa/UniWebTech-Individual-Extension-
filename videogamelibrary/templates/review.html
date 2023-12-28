@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %} {{review.game.name}} Review: {{ review.title }} | Games Library {% endblock %}
+
+{% block content %}
+
+
+<div class="h-100 p-5 bg-body-tertiary border rounded-3">
+
+    <div class="container">
+        
+        <h1> {{review.title}}</h1>
+        <h6> Game: {{ review.game.name }} - Rating: {{review.rating}} </h6>
+        <p>{{review.text}}
+
+    </div>
+    
+    {% if request.user.is_authenticated %}
+        {% if request.user == review.user %}
+            <a href="{% url 'update_review' review.id %}" class="btn btn-primary">Edit Review</a>
+            <a href="{% url 'delete_review' review.id %}" class="btn btn-danger">Delete Review</a>
+        {% endif %}
+    {% endif %}
+
+</div>
+
+
+
+
+{% endblock %}

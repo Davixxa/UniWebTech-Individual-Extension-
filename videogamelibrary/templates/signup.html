@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %} Sign up | Games Library {% endblock %}
+
+{% block content %}
+
+{% if form.errors %}
+
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>There was an error with your form.</strong> Check below for details
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>  
+    
+
+{% endif %}
+
+
+<div class="h-100 p-5 bg-body-tertiary border rounded-3">
+
+    <div class="container">
+        <div class="form-group">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="Submit" class="btn btn-primary">Sign up</button>
+            </form>    
+        </div>
+    </div>
+
+        
+   
+
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}

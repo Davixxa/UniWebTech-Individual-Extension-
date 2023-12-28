@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+<!-- This is kind of ugly, but it solves the title part. -->
+{% block title %} 
+    {% if view == "genre" %}
+        Genre: {{genre.name}}
+    {% elif view == "search" %}
+        Search Query: {{ query }}
+    {% else %}
+        All Games
+    {% endif %} 
+    | Games Library 
+{% endblock %}
+
+{% block content %}
+
+
+<div class="h-100 p-5 bg-body-tertiary border rounded-3">
+
+
+    {% if view == "genre" %}
+                <h1>Genre: {{genre.name}} </h1>
+    {% elif view == "search" %}
+                <h1>Search Query: {{ query }}</h1>
+    {% else %}
+                <h1>All Games</h1>
+    {% endif %}
+
+    <br>
+
+    <div class="row row-cols-4">
+        {% for game in games %}
+        
+        <div class="col">
+
+            
+
+            <div class="card" style="width: 18rem;">
+                <img src="{{game.cover.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{game.name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">{{game.developer.name}}</h6>
+                    <p class="card-text">{{game.description|safe|truncatechars:140}}</p>
+                    <p class="card-text"><small class="text-body-secondary">{{game.pub_date.date}}</small></p>
+                  <a href="{% url 'game' game.id %}" class="btn btn-primary">Go to game page</a>
+                </div>
+              </div>
+        </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
